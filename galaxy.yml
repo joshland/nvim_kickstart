@@ -21,5 +21,9 @@ homepage: https://github.com/joshland/nvim_kickstart
 issues: https://github.com/drew1kun/ansible-collection-fancyfonts/issues
 
 build_ignore:
+  - '*~'
+  - '*_'
   - '*.tar.gz'
   - 'signatures'
+  - ',gitignore'
+  - '.yamllint'

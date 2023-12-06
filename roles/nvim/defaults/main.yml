@@ -1,17 +1,17 @@
 ---
-kickstart_repo: "https://github.com/nvim-lua/kickstart.nvim.git"
-config_path: "{{ ansible_env.HOME }}/.config/nvim"
-neovim_build_path: "{{ ansible_env.HOME }}/.build/nvim"
-neovim_repo: "https://github.com/neovim/neovim.git"
-install_path: "{{ ansible_env.HOME }}/bin"
+nvim_kickstart_repo: "https://github.com/nvim-lua/kickstart.nvim.git"
+nvim_config_path: "{{ ansible_env.HOME }}/.config/nvim"
+nvim_build_path: "{{ ansible_env.HOME }}/.build/nvim"
+nvim_repo: "https://github.com/neovim/neovim.git"
+nvim_install_path: "{{ ansible_env.HOME }}/bin"
 
 # defaults file for nvimBuild
-build_it: no
-daily_limit: yes
+nvim_build_it: no
+nvim_daily_limit: yes
 
 nvim_source: neovim/neovim
 
-nv_dirs:
+nvim_dirs:
   - "{{ ansible_env.HOME }}/.build"
   - "{{ ansible_env.HOME }}/.config"
   - "{{ ansible_env.HOME }}/.local"
@@ -26,7 +26,7 @@ nv_dirs:
   - "{{ nvim_dir }}"
   - "{{ gits_dir }}"
 
-dnf:
+nvim_dnf:
   - "@Development Tools"
   - git
   - rubygems
@@ -36,8 +36,8 @@ dnf:
   - unzip
   - gettext
   - curl
-      
-apts:
+
+nvim_apts:
   - ack
   - autoconf
   - automake
@@ -77,7 +77,7 @@ apts:
   - unzip
   - zsh
 
-brews:
+nvim_brews:
   - ack
   - automake
   - ccache
@@ -99,11 +99,11 @@ brew_heads:
   - fzf
   - luajit
 
-gems:
+nvim_gems:
   - neovim
   - minitest-neovim
 
-perls:
+nvim_perls:
   - Neovim
   # - JACQUESG/Neovim-Ext-0.05.tar.gz
 

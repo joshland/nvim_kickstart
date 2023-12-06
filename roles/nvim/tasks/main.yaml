@@ -3,37 +3,38 @@
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
-    recurse: no
-    mode: 0755
-  with_items: "{{ nv_dirs }}"
-  when: nv_dirs_mk
+    recurse: false
+    mode: "0755"
+  with_items: "{{ nvim_dirs }}"
+  when: nvim_dirs_mk
 
-- ansible.builtin.include_tasks: tasks/redhat.yaml
+- name: "build for redhat [when applicable]"
+  ansible.builtin.include_tasks: tasks/redhat.yaml
   when: "'RedHat' in ansible_os_family"
 
 - name: clone kickstart (user config)
   ansible.builtin.git:
-    repo: "{{ kickstart_repo }}"
-    dest: "{{ config_path }}"
+    repo: "{{ nvim_kickstart_repo }}"
+    dest: "{{ nvim_config_path }}"
     version: HEAD
-    accept_hostkey: yes
-    clone: yes
-    force: no
-    update: yes
+    accept_hostkey: true
+    clone: true
+    force: false
+    update: true
 
 - name: clone source repo for build
   ansible.builtin.git:
-    repo: "{{ neovim_repo }}"
-    dest: "{{ neovim_build_dir }}"
+    repo: "{{ nvim_repo }}"
+    dest: "{{ nvim_build_dir }}"
     version: HEAD
-    accept_hostkey: yes
-    clone: yes
-    update: yes
-    force: yes
+    accept_hostkey: true
+    clone: true
+    update: true
+    force: true
 
 - name: check if we built the binary in the last day
   ansible.builtin.find:
-    paths: "{{ install_path }}/bin"
+    paths: "{{ nvim_install_path }}/bin"
     patterns: nvim
     age: 1d
   register: days
