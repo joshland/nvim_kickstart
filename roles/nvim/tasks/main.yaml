@@ -25,7 +25,7 @@
 - name: clone source repo for build
   ansible.builtin.git:
     repo: "{{ nvim_repo }}"
-    dest: "{{ nvim_build_dir }}"
+    dest: "{{ nvim_build_path }}"
     version: HEAD
     accept_hostkey: true
     clone: true
@@ -38,8 +38,8 @@
     patterns: nvim
     age: 1d
   register: days
-  when: build_it and (daily_limit is defined) and daily_limit
+  #when: nvim_build_it and (daily_limit is defined) and daily_limit
 
 - name: "[buildrun]"
   ansible.builtin.include_tasks: tasks/build.yaml
-  when: build_it and ((days is not defined) or days.matched != '0')
+  #when: nvim_build_it and ((days is not defined) or days.matched != '0')

@@ -3,11 +3,12 @@ nvim_kickstart_repo: "https://github.com/nvim-lua/kickstart.nvim.git"
 nvim_config_path: "{{ ansible_env.HOME }}/.config/nvim"
 nvim_build_path: "{{ ansible_env.HOME }}/.build/nvim"
 nvim_repo: "https://github.com/neovim/neovim.git"
-nvim_install_path: "{{ ansible_env.HOME }}/bin"
+nvim_install_path: "/usr/local"
 
 # defaults file for nvimBuild
 nvim_build_it: no
-nvim_daily_limit: yes
+nvim_daily_limit: false
+nvim_dirs_mk: true
 
 nvim_source: neovim/neovim
 
@@ -23,8 +24,6 @@ nvim_dirs:
   - "{{ ansible_env.HOME }}/.cache/nvim/view"
   - "{{ ansible_env.HOME }}/.cache/nvim/spell"
   - "{{ ansible_env.HOME }}/.local/share"
-  - "{{ nvim_dir }}"
-  - "{{ gits_dir }}"
 
 nvim_dnf:
   - "@Development Tools"
@@ -95,7 +94,7 @@ nvim_brews:
   - rg
   - rga
 
-brew_heads:
+nvim_brew_heads:
   - fzf
   - luajit
 

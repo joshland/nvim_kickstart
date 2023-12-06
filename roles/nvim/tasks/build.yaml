@@ -3,11 +3,12 @@
   community.general.make:
     chdir: "{{ nvim_build_path }}"
     target: distclean
-    make: "{{ nvim_exe_make }}"
+    #make: "{{ nvim_exe_make }}"
   tags:
     - molecule-idempotence-notest
 
 - name: build release target
+  become: true
   community.general.make:
     chdir: "{{ nvim_build_path }}"
     params:
@@ -15,7 +16,7 @@
       CMAKE_INSTALL_PREFIX: "{{ nvim_install_path }}"
       # USE_BUNDLED: "OFF"
     target: install
-    make: "{{ nvim_exe_make }}"
+    #make: "{{ nvim_exe_make }}"
   tags:
     - molecule-idempotence-notest
 ...
