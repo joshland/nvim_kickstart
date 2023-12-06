@@ -1,0 +1,21 @@
+---
+- name: clean up artifacts from prior builds
+  community.general.make:
+    chdir: "{{ neovim_build_path }}"
+    target: distclean
+    make: "{{ exe_make }}"
+  tags:
+    - molecule-idempotence-notest
+
+- name: build release target
+  community.general.make:
+    chdir: "{{ neovim_build_path }}"
+    params:
+      CMAKE_BUILD_TYPE: Release
+      CMAKE_INSTALL_PREFIX: "{{ install_path }}"
+      # USE_BUNDLED: "OFF"
+    target: install
+    make: "{{ exe_make }}"
+  tags:
+    - molecule-idempotence-notest
+...

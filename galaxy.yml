@@ -1,0 +1,25 @@
+namespace: joshland
+name: nvim_kickstart
+version: 1.0.0
+readme: README.md
+authors:
+  - Joshua Schmidlkofer <joshland@protonmail.com>
+description: Quick local nvim deployment
+
+# The path to the license file for the collection. This path is relative to the root of the collection. This key is
+# mutually exclusive with 'license'
+license_file: 'LICENSE'
+tags:
+  - nvim
+  - neovim
+  - kickstart
+  - linux
+
+repository: https://github.com/joshland/nvim_kickstart.git
+documentation: https://github.com/joshland/nvim_kickstart/blob/main/README.md
+homepage: https://github.com/joshland/nvim_kickstart
+issues: https://github.com/drew1kun/ansible-collection-fancyfonts/issues
+
+build_ignore:
+  - '*.tar.gz'
+  - 'signatures'

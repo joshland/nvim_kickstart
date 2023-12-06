@@ -1,0 +1,110 @@
+---
+kickstart_repo: "https://github.com/nvim-lua/kickstart.nvim.git"
+config_path: "{{ ansible_env.HOME }}/.config/nvim"
+neovim_build_path: "{{ ansible_env.HOME }}/.build/nvim"
+neovim_repo: "https://github.com/neovim/neovim.git"
+install_path: "{{ ansible_env.HOME }}/bin"
+
+# defaults file for nvimBuild
+build_it: no
+daily_limit: yes
+
+nvim_source: neovim/neovim
+
+nv_dirs:
+  - "{{ ansible_env.HOME }}/.build"
+  - "{{ ansible_env.HOME }}/.config"
+  - "{{ ansible_env.HOME }}/.local"
+  - "{{ ansible_env.HOME }}/.cache"
+  - "{{ ansible_env.HOME }}/.cache/nvim"
+  - "{{ ansible_env.HOME }}/.cache/nvim/swag"
+  - "{{ ansible_env.HOME }}/.cache/nvim/undodir"
+  - "{{ ansible_env.HOME }}/.cache/nvim/backup"
+  - "{{ ansible_env.HOME }}/.cache/nvim/view"
+  - "{{ ansible_env.HOME }}/.cache/nvim/spell"
+  - "{{ ansible_env.HOME }}/.local/share"
+  - "{{ nvim_dir }}"
+  - "{{ gits_dir }}"
+
+dnf:
+  - "@Development Tools"
+  - git
+  - rubygems
+  - ruby-devel
+  - ninja-build
+  - cmake
+  - unzip
+  - gettext
+  - curl
+      
+apts:
+  - ack
+  - autoconf
+  - automake
+  - build-essential
+  - ccache
+  - cmake
+  - dirmngr
+  - ffmpeg
+  - fzy
+  - g++
+  - gettext
+  - git
+  - git-lfs
+  - gperf
+  - libjemalloc-dev
+  - libluajit-5.1-dev
+  - libmsgpack-dev
+  - libtermkey-dev
+  - libtool
+  - libtool-bin
+  - libunibilium-dev
+  - libutf8proc-dev
+  - libuv1-dev
+  - libvterm-dev
+  - lua-bitop
+  - lua-ljsyscall
+  - lua-lpeg
+  - lua-mpack
+  - lua5.1
+  - luarocks
+  - ninja-build
+  - pandoc
+  - pkg-config
+  - poppler-utils
+  - python3-lupa
+  - software-properties-common
+  - unzip
+  - zsh
+
+brews:
+  - ack
+  - automake
+  - ccache
+  - cmake
+  - fd
+  - fzy
+  - gettext
+  - git-lfs
+  - libtool
+  - lua
+  - lua@5.1
+  - luarocks
+  - ninja
+  - pkg-config
+  - rg
+  - rga
+
+brew_heads:
+  - fzf
+  - luajit
+
+gems:
+  - neovim
+  - minitest-neovim
+
+perls:
+  - Neovim
+  # - JACQUESG/Neovim-Ext-0.05.tar.gz
+
+...

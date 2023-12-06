@@ -1,0 +1,6 @@
+---
+- name: "[install] requirements for ruby gem"
+  ansible.builtin.package:
+    name: '{{ dnf }}'
+  become: true
+  when: "'RedHat' in ansible_os_family"

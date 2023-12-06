@@ -1,0 +1,26 @@
+---
+galaxy_info:
+  role_name: nvim_kickstart
+  author: joshland
+  description: build neovim nightly and deploy kickstart
+
+  # issue_tracker_url: http://example.com/issue/tracker
+
+  license: MIT
+
+  min_ansible_version: "2.9"
+
+  # min_ansible_container_version:
+
+  platforms:
+    - name: Fedora
+      versions:
+        - all
+
+  galaxy_tags:
+    - neovim
+    - kickstart
+
+dependencies: []
+
+...

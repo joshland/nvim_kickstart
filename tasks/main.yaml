@@ -1,0 +1,44 @@
+---
+- name: create directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    recurse: no
+    mode: 0755
+  with_items: "{{ nv_dirs }}"
+  when: nv_dirs_mk
+
+- ansible.builtin.include_tasks: tasks/redhat.yaml
+  when: "'RedHat' in ansible_os_family"
+
+- name: clone kickstart (user config)
+  ansible.builtin.git:
+    repo: "{{ kickstart_repo }}"
+    dest: "{{ config_path }}"
+    version: HEAD
+    accept_hostkey: yes
+    clone: yes
+    force: no
+    update: yes
+
+- name: clone source repo for build
+  ansible.builtin.git:
+    repo: "{{ neovim_repo }}"
+    dest: "{{ neovim_build_dir }}"
+    version: HEAD
+    accept_hostkey: yes
+    clone: yes
+    update: yes
+    force: yes
+
+- name: check if we built the binary in the last day
+  ansible.builtin.find:
+    paths: "{{ install_path }}/bin"
+    patterns: nvim
+    age: 1d
+  register: days
+  when: build_it and (daily_limit is defined) and daily_limit
+
+- name: "[buildrun]"
+  ansible.builtin.include_tasks: tasks/build.yaml
+  when: build_it and ((days is not defined) or days.matched != '0')
