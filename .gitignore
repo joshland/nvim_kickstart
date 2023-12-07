@@ -11,3 +11,5 @@ test/results
 galaxy-publish.yml
 galaxy-publish-ci.yml
 *~
+.venv
+activate
