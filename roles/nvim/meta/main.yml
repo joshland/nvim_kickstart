@@ -1,4 +1,5 @@
 dependencies: []
+requires_ansible: ">=2.8"
 galaxy_info:
   author: joshland
   role_name: nvim

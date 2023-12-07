@@ -1,4 +1,5 @@
 ---
+requires_ansible: ">=2.8"
 galaxy_info:
   role_name: nvim_kickstart
   author: joshland
