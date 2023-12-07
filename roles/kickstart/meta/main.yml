@@ -1,0 +1,11 @@
+dependencies: []
+galaxy_info:
+  author: joshland
+  role_name: kickstart
+  description: Deploy neovim kickstart to the config folder.
+  license: license (MIT)
+  min_ansible_version: 2.7
+  platforms:
+    - name: Fedora
+      versions:
+        - all
