@@ -1,0 +1,4 @@
+---
+kickstart_repo: "https://github.com/nvim-lua/kickstart.nvim.git"
+kickstart_path: "{{ ansible_env.HOME }}/.config/nvim"
+

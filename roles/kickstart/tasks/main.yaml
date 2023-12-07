@@ -1,0 +1,11 @@
+---
+- name: clone kickstart (user config)
+  ansible.builtin.git:
+    repo: "{{ kickstart_repo }}"
+    dest: "{{ kickstart_path }}"
+    version: HEAD
+    accept_hostkey: true
+    clone: true
+    force: false
+    update: true
+...

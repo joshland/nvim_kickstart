@@ -1,6 +1,4 @@
 ---
-nvim_kickstart_repo: "https://github.com/nvim-lua/kickstart.nvim.git"
-nvim_config_path: "{{ ansible_env.HOME }}/.config/nvim"
 nvim_build_path: "{{ ansible_env.HOME }}/.build/nvim"
 nvim_repo: "https://github.com/neovim/neovim.git"
 nvim_install_path: "/usr/local"

@@ -20,6 +20,7 @@ nvim.yml:
        - joshland.nvim_kickstart
        roles:
          - nvim
+	 - kickstart
 
 Installation:
 
@@ -27,4 +28,7 @@ Installation:
 
 Execution:
 
+Run sudo first, this will let ansible _become_ when it needs to for software install
+
+    sudo ls
 	ansible-playbook) jsnvim.yml  -vv

@@ -12,16 +12,6 @@
   ansible.builtin.include_tasks: tasks/redhat.yaml
   when: "'RedHat' in ansible_os_family"
 
-- name: clone kickstart (user config)
-  ansible.builtin.git:
-    repo: "{{ nvim_kickstart_repo }}"
-    dest: "{{ nvim_config_path }}"
-    version: HEAD
-    accept_hostkey: true
-    clone: true
-    force: false
-    update: true
-
 - name: clone source repo for build
   ansible.builtin.git:
     repo: "{{ nvim_repo }}"
@@ -43,3 +33,5 @@
 - name: "[buildrun]"
   ansible.builtin.include_tasks: tasks/build.yaml
   #when: nvim_build_it and ((days is not defined) or days.matched != '0')
+
+...
