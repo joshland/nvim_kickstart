@@ -1,3 +1,5 @@
 roles/nvim/tasks/*.yaml name[casing]
 roles/nvim/tasks/main.yaml name[casing]
 roles/nvim/tasks/build.yaml name[casing]
+roles/kickstart/tasks/main.yaml name[casing]
+

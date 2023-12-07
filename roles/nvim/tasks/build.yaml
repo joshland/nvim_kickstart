@@ -8,6 +8,17 @@
     - molecule-idempotence-notest
 
 - name: build release target
+  community.general.make:
+    chdir: "{{ nvim_build_path }}"
+    params:
+      CMAKE_BUILD_TYPE: Release
+      CMAKE_INSTALL_PREFIX: "{{ nvim_install_path }}"
+      # USE_BUNDLED: "OFF"
+    #make: "{{ nvim_exe_make }}"
+  tags:
+    - molecule-idempotence-notest
+
+- name: install release target
   become: true
   community.general.make:
     chdir: "{{ nvim_build_path }}"
@@ -17,6 +28,14 @@
       # USE_BUNDLED: "OFF"
     target: install
     #make: "{{ nvim_exe_make }}"
+  register: install_results
   tags:
     - molecule-idempotence-notest
+- name: cleanup build folder
+  ansible.builtin.file:
+    state: absent
+    path: "{{ nvim_build_path }}"
+  when:
+    - nvim_remove_build
+    - not install_results.failed
 ...

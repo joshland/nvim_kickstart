@@ -2,6 +2,7 @@
 nvim_build_path: "{{ ansible_env.HOME }}/.build/nvim"
 nvim_repo: "https://github.com/neovim/neovim.git"
 nvim_install_path: "/usr/local"
+nvim_remove_build: true
 
 # defaults file for nvimBuild
 nvim_build_it: no
